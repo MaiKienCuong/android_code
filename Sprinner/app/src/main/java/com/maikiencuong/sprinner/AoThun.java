@@ -1,6 +1,8 @@
 package com.maikiencuong.sprinner;
 
-public class AoThun {
+import java.io.Serializable;
+
+public class AoThun implements Serializable {
     private String ten;
     private double gia;
     private int image;

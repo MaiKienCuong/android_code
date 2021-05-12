@@ -10,15 +10,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class CustomAdapter  extends BaseAdapter {
+public class CustomAdapter extends BaseAdapter {
 
     private Context context;
-    private int layoutItem;
     private ArrayList<AoThun> aoThuns;
 
-    public CustomAdapter(Context context, int layoutItem, ArrayList<AoThun> aoThuns) {
+    public CustomAdapter(Context context, ArrayList<AoThun> aoThuns) {
         this.context = context;
-        this.layoutItem = layoutItem;
         this.aoThuns = aoThuns;
     }
 
@@ -29,7 +27,7 @@ public class CustomAdapter  extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return aoThuns.get(position);
     }
 
     @Override
@@ -39,14 +37,14 @@ public class CustomAdapter  extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView= LayoutInflater.from(context).inflate(layoutItem, parent, false);
+        convertView = LayoutInflater.from(context).inflate(R.layout.custom_list_view, parent, false);
 
-        TextView textViewTen=convertView.findViewById(R.id.textviewTen);
-        TextView textViewGia=convertView.findViewById(R.id.textViewGia);
-        ImageView imageView=convertView.findViewById(R.id.imageView);
+        TextView textViewTen = convertView.findViewById(R.id.textviewTen);
+        TextView textViewGia = convertView.findViewById(R.id.textViewGia);
+        ImageView imageView = convertView.findViewById(R.id.imageView);
 
         textViewTen.setText(aoThuns.get(position).getTen());
-        textViewGia.setText(aoThuns.get(position).getGia()+"$");
+        textViewGia.setText(aoThuns.get(position).getGia() + "$");
         imageView.setImageResource(aoThuns.get(position).getImage());
 
         return convertView;
